@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="quantum" data-bg="navy" data-motion="on" data-speed="normal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ChronoShift · Interactive Time Travel Experience</title>
+  <meta name="description" content="ChronoShift is an interactive time travel experience: explore years, record history, and leave notes in a personal time capsule.">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Orbitron:wght@500;700&display=swap">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body class="is-loading">
+  <a class="skip-link" href="#view">Skip to main content</a>
+  <div class="stars" aria-hidden="true"></div>
+
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Primary">
+      <div class="brand">
+        <img src="assets/icons/favicon.svg" alt="" width="34" height="34">
+        <span>CHRONO<b>SHIFT</b></span>
+      </div>
+      <nav aria-label="Main navigation"><ul id="nav-list"></ul></nav>
+      <div class="sidebar-foot">
+        <button type="button" class="btn btn-ghost btn-block" data-action="logout"><span data-icon="logout"></span> Logout</button>
+      </div>
+    </aside>
+    <div class="backdrop" id="backdrop"></div>
+
+    <div class="main-col">
+      <header class="topbar">
+        <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-label="Open navigation" aria-controls="sidebar" aria-expanded="false" data-icon="menu"></button>
+        <form class="search" id="global-search" role="search">
+          <label class="sr-only" for="search-input">Search events, notes and years</label>
+          <input type="search" id="search-input" placeholder="Search events, notes, years…  ( / )" autocomplete="off" maxlength="80">
+          <button type="submit" class="icon-btn" aria-label="Run search" data-icon="search"></button>
+        </form>
+        <button type="button" class="year-pill" id="year-pill" data-go="time-machine" aria-label="Selected year. Open time machine"></button>
+        <div class="user-chip" id="user-chip"></div>
+      </header>
+      <main id="view" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <div id="warp-overlay" class="warp-overlay" aria-hidden="true"></div>
+
+  <dialog id="confirm-dialog" class="dialog" aria-labelledby="confirm-title">
+    <form method="dialog">
+      <h2 id="confirm-title"></h2>
+      <p id="confirm-text" class="muted"></p>
+      <div class="dialog-actions">
+        <button type="submit" value="cancel" class="btn btn-ghost">Cancel</button>
+        <button type="submit" value="ok" class="btn btn-danger" id="confirm-ok">Confirm</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
